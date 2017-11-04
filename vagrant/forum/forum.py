@@ -11,6 +11,7 @@ app = Flask(__name__)
 # HTML template for the forum page
 HTML_WRAP = '''\
 <!DOCTYPE html>
+<!-- comment -->
 <html>
   <head>
     <title>DB Forum</title>
