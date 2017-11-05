@@ -2,15 +2,12 @@
 <html>
 
 <head>
-  <title>Home-ing Network</title>
-</head>
-
-<body>
-  <h1> </h1>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css">
+  <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </head>
+
+<body>
   <nav class="navbar navbar-expand-md bg-primary navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="#">Home-ing Network</a>
@@ -31,6 +28,41 @@
       </div>
     </div>
   </nav>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a class="btn btn-primary" href="" data-target="#exampleModal" data-toggle="modal">New Post </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="exampleModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group"> <label for="location">location</label>
+              <input type="text" name="location" class="form-control" id="location" placeholder="loacation"> </div>
+            <div class="form-group"> <label for="number">number</label>
+              <input type="text" name="number" class="form-control" id="number" placeholder="number"> </div>
+            <div class="form-group"> <label for="description">Example textarea</label> <textarea class="form-control" id="description" name="description" rows="3"></textarea> </div>
+            <div class="form-group">
+		    <label for="exampleFormControlFile1">Example file input</label>
+		    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+		  </div>
+		   	<button type="button" class="btn btn-primary">Upload</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="py-5">
     <div class="container">
       <div class="row">
@@ -103,6 +135,26 @@
       </div>
     </div>
   </div>
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Home-ing Network</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-info"></i> About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-envelope-o"></i> Contact</a>
+          </li>
+        </ul>
+        <a class="btn navbar-btn btn-primary ml-2 text-white"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign in</a>
+      </div>
+    </div>
+  </nav>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
