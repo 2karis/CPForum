@@ -17,32 +17,7 @@ session = DBSession()
 @app.route('/homepage')
 def homePage():
 
-	posts = [  # fake array of posts
-        {	'id' : 1,
-            'location': 'five points', 
-            'number': '6',
-            'description': 'a group of elderly people are hanging around five points',
-            'image':'DSC_0100.jpg',
-        },
-         { 	'id' : 2,
-            'location': 'five points', 
-            'number': '6',
-            'description': 'a group of elderly people are hanging around five points',
-            'image':'17378825_BG1.jpg',
-        },
-         { 	'id' : 3,
-            'location': 'five points', 
-            'number': '6',
-            'description': 'a group of elderly people are hanging around five points',
-            'image':'16029849_BG1.jpg',
-        },
-         {  'id' : 4,
-            'location': 'five points', 
-            'number': '6',
-            'description': 'a group of elderly people are hanging around five points',
-            'image':'image.png',
-        }
-    ]
+	posts = session.query(Homeless).all()
 	return render_template('homepage.html',  posts=posts)
 
 @app.route('/contact')
@@ -56,17 +31,17 @@ def aboutPage():
 @app.route('/pic/<int:post_id>')
 def pic(post_id):
 
-	post = {'location': 'five points', 
-            'number': '6',
-            'description': 'a group of elderly people are hanging around five points',
-            'image':'DSC_0100.jpg' }
-	return render_template('pic.html', post=post), 'Post %d' % post_id
+	posts =  session.query(Homeless).filter_by(id=post_id).first() 
 
-#@app.route('/upload', methods=['GET', 'POST'])
-#def upload():
-	#if request.method == 'POST':
-		#f = request.files['the_file']
-		#f.save('/var/www/uploads/uploaded_file.txt')
+	return render_template('pic.html', post=posts), 'Post %d' % post_id
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+	if request.method == 'POST':
+		f = request.files['the_file']
+		f.save('/var/www/uploads/uploaded_file.txt')
+
+
 
 if __name__ == '__main__':
     app.debug = True
