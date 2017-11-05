@@ -3,8 +3,16 @@ from flask import render_template
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Homeless
-app = Flask(__name__)
+from datetime import datetime
+import os
+from flask import request, redirect, url_for
+from werkzeug.utils import secure_filename
 
+UPLOAD_FOLDER = 'static/img'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 engine = create_engine('sqlite:///lesshome.db')
 Base.metadata.bind = engine
@@ -35,12 +43,20 @@ def pic(post_id):
 
 	return render_template('pic.html', post=posts), 'Post %d' % post_id
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-	if request.method == 'POST':
-		f = request.files['the_file']
-		f.save('/var/www/uploads/uploaded_file.txt')
+ 	if request.method == 'POST':
+ 		file = request.files['file']
 
+ 		if file and allowed_file(file.filename):
+ 			filename = secure_filename(file.filename)
+ 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+ 			return redirect('/')
 
 
 if __name__ == '__main__':

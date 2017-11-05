@@ -47,15 +47,13 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/upload" method="post" enctype="multipart/form-data">
             <div class="form-group"> <label for="location">location</label>
-              <input type="text" name="location" class="form-control" id="location" placeholder="loacation"> </div>
-            <div class="form-group"> <label for="number">number</label>
-              <input type="text" name="number" class="form-control" id="number" placeholder="number"> </div>
-            <div class="form-group"> <label for="description">Example textarea</label> <textarea class="form-control" id="description" name="description" rows="3"></textarea> </div>
+              <input type="text" name="location" class="form-control" id="location" placeholder="location" required> </div>
+            <div class="form-group"> <label for="description">Description</label> <textarea class="form-control" id="description" name="description" rows="3" required></textarea> </div>
             <div class="form-group"> <label for="exampleFormControlFile1">Example file input</label>
-              <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1"> </div>
-            <button type="button" class="btn btn-primary">Upload</button>
+              <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1" required> </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
           </form>
         </div>
         <div class="modal-footer"> </div>
