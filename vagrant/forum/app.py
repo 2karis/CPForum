@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import desc
 from database_setup import Base, Homeless
 from datetime import datetime
 import os
@@ -25,7 +26,7 @@ session = DBSession()
 @app.route('/homepage')
 def homePage():
 
-	posts = session.query(Homeless).all()
+	posts = session.query(Homeless).order_by(desc(Homeless.id))
 	return render_template('homepage.html',  posts=posts)
 
 @app.route('/contact')
@@ -54,8 +55,15 @@ def upload():
  		file = request.files['file']
 
  		if file and allowed_file(file.filename):
- 			filename = secure_filename(file.filename)
- 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+ 			formfilename = secure_filename(file.filename)
+ 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], formfilename))
+ 			formlocation = request.form['location']
+ 			formdescription = request.form['description']
+
+			location1 = Homeless(location=formlocation, description=formdescription, image=formfilename)
+
+			session.add(location1)
+			session.commit()
  			return redirect('/')
 
 
