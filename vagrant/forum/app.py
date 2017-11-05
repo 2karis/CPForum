@@ -16,7 +16,34 @@ session = DBSession()
 @app.route('/')
 @app.route('/homepage')
 def homePage():
-    return render_template('homepage.html')
+
+	posts = [  # fake array of posts
+        { 
+            'location': 'five points', 
+            'number': '6',
+            'description': 'a group of elderly people are hanging around five points',
+            'image':'DSC_0100.jpg',
+        },
+         { 
+            'location': 'five points', 
+            'number': '6',
+            'description': 'a group of elderly people are hanging around five points',
+            'image':'17378825_BG1.jpg',
+        },
+         { 
+            'location': 'five points', 
+            'number': '6',
+            'description': 'a group of elderly people are hanging around five points',
+            'image':'16029849_BG1.jpg',
+        },
+         { 
+            'location': 'five points', 
+            'number': '6',
+            'description': 'a group of elderly people are hanging around five points',
+            'image':'image.png',
+        }
+    ]
+	return render_template('homepage.html',  posts=posts)
 
 @app.route('/contact')
 def contactPage():
