@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Homeless
@@ -13,9 +14,27 @@ session = DBSession()
 
 
 @app.route('/')
-@app.route('/hello')
-def HomePage():
+@app.route('/homepage')
+def homePage():
     return render_template('homepage.html')
+
+@app.route('/contact')
+def contactPage():
+	return render_template('contact.html')
+
+@app.route('/about')
+def aboutPage():
+	return render_template('about.html')
+
+@app.route('/pic')
+def pic():
+	return render_template('pic.html')
+
+#@app.route('/upload', methods=['GET', 'POST'])
+#def upload():
+	#if request.method == 'POST':
+		#f = request.files['the_file']
+		#f.save('/var/www/uploads/uploaded_file.txt')
 
 if __name__ == '__main__':
     app.debug = True
