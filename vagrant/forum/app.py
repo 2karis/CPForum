@@ -55,7 +55,12 @@ def aboutPage():
 
 @app.route('/pic')
 def pic():
-	return render_template('pic.html')
+
+	post = {'location': 'five points', 
+            'number': '6',
+            'description': 'a group of elderly people are hanging around five points',
+            'image':'DSC_0100.jpg' }
+	return render_template('pic.html', post=post)
 
 #@app.route('/upload', methods=['GET', 'POST'])
 #def upload():
