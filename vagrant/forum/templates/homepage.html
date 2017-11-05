@@ -67,7 +67,7 @@
       <div class="row">
         {% for post in posts %}
         <div class="col-md-3">
-          <a href="#">
+          <a href="/pic/{{ post.id }}">
             <img class="img-fluid d-block" src="/static/img/{{post.image}}"> </a>
           <p class="">Location: {{ post.location }}</p>
           <p class="">Number: {{ post.number}}</p>

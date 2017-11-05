@@ -18,25 +18,25 @@ session = DBSession()
 def homePage():
 
 	posts = [  # fake array of posts
-        { 
+        {	'id' : 1,
             'location': 'five points', 
             'number': '6',
             'description': 'a group of elderly people are hanging around five points',
             'image':'DSC_0100.jpg',
         },
-         { 
+         { 	'id' : 2,
             'location': 'five points', 
             'number': '6',
             'description': 'a group of elderly people are hanging around five points',
             'image':'17378825_BG1.jpg',
         },
-         { 
+         { 	'id' : 3,
             'location': 'five points', 
             'number': '6',
             'description': 'a group of elderly people are hanging around five points',
             'image':'16029849_BG1.jpg',
         },
-         { 
+         {  'id' : 4,
             'location': 'five points', 
             'number': '6',
             'description': 'a group of elderly people are hanging around five points',
@@ -53,14 +53,14 @@ def contactPage():
 def aboutPage():
 	return render_template('about.html')
 
-@app.route('/pic')
-def pic():
+@app.route('/pic/<int:post_id>')
+def pic(post_id):
 
 	post = {'location': 'five points', 
             'number': '6',
             'description': 'a group of elderly people are hanging around five points',
             'image':'DSC_0100.jpg' }
-	return render_template('pic.html', post=post)
+	return render_template('pic.html', post=post), 'Post %d' % post_id
 
 #@app.route('/upload', methods=['GET', 'POST'])
 #def upload():
